@@ -1,8 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://buoeolvm6yalf"]
+[gd_scene load_steps=4 format=3 uid="uid://buoeolvm6yalf"]
 
+[ext_resource type="Texture2D" uid="uid://dalwspi1htjlp" path="res://textures/backgroundColor.png" id="1_c5uo5"]
 [ext_resource type="PackedScene" uid="uid://dj3sjxuq3rfk7" path="res://Player/player.tscn" id="1_i3rah"]
+[ext_resource type="Texture2D" uid="uid://dfo1ty8x1cdd3" path="res://textures/starBig.png" id="2_j7o10"]
 
 [node name="GamePlay" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(3.0266666, 4.02)
+texture = ExtResource("1_c5uo5")
+centered = false
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Background"]
+position = Vector2(74.008804, 0)
+amount = 30
+texture = ExtResource("2_j7o10")
+lifetime = 3.0
+emission_shape = 3
+emission_rect_extents = Vector2(80, 1)
+direction = Vector2(0, 1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 60.0
+angle_max = 90.0
+scale_amount_min = 0.1
+scale_amount_max = 0.6
 
 [node name="Player" parent="." instance=ExtResource("1_i3rah")]
 position = Vector2(200, 174)
