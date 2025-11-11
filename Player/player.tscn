@@ -47,12 +47,24 @@ radius = 34.0
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_4ntmi")
+fire_delay = 0.15
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_k53q1")
-animation = &"left"
+animation = &"straight"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_l8h54")
+
+[node name="FiringPositions" type="Node2D" parent="."]
+
+[node name="LeftGun" type="Node2D" parent="FiringPositions"]
+position = Vector2(-35, -6)
+
+[node name="RightGun" type="Node2D" parent="FiringPositions"]
+position = Vector2(34, -7)
+
+[node name="FireDelayTimer" type="Timer" parent="."]
+one_shot = true
