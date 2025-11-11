@@ -1,14 +1,22 @@
 extends Area2D
+class_name Player
 
 var plBullet = preload("res://Bullet/bullet.tscn")
 
 @onready var animated_sprite=$AnimatedSprite
 @onready var firing_positions=$FiringPositions
 @onready var fire_delay_timer=$FireDelayTimer
+@onready var invincibility_timer=$InvincibilityTimer
+@onready var shield_sprite=$Sprite2D
 
 @export var speed: float = 100
 @export var fire_delay: float= 0.1
+@export var life:int=3
+@export var invincibility_time=1.5
 var vel:= Vector2(0,0)
+
+func _ready() -> void:
+	shield_sprite.visible=false
 
 func _process(delta: float) -> void:
 	if vel.x<0:
@@ -45,3 +53,17 @@ func _physics_process(delta: float) -> void:
 	position.x=clamp(position.x,0,viewRect.size.x)
 	position.y=clamp(position.y,0,viewRect.size.y)
 	
+func damage(amount:int):
+	if(not invincibility_timer.is_stopped()):
+		return
+	invincibility_timer.start(invincibility_time)
+	shield_sprite.visible=true
+	life-=amount
+	print("Player life=%s" %life)
+	if life<=0:
+		print("Player Died!")
+		queue_free()
+
+
+func _on_invincibility_timer_timeout() -> void:
+	shield_sprite.visible=false
