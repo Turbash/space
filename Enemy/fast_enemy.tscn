@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bptycnf2ws7b3"]
+
+[ext_resource type="PackedScene" uid="uid://dxavp8jobd04u" path="res://Enemy/enemy.tscn" id="1_4sc6u"]
+[ext_resource type="Script" uid="uid://cvb8uvvbbx1el" path="res://Enemy/fast_enemy.gd" id="2_a2oy4"]
+
+[node name="FastEnemy" instance=ExtResource("1_4sc6u")]
+script = ExtResource("2_a2oy4")
+rotationRate = 50
+verticalSpeed = 50.0
+health = 20
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.75, 0.75)
+
+[node name="CollisionShape2D" parent="." index="1"]
+scale = Vector2(0.75, 0.75)
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="2"]
+scale = Vector2(0.75, 0.75)
+rect = Rect2(-90.66667, -62.666668, 133.33334, 125.33334)
