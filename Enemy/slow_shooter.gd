@@ -1,4 +1,5 @@
 extends Enemy
+class_name SlowShooter
 
 @export var fireRate:= 1.0
 
