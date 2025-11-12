@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://buoeolvm6yalf"]
+[gd_scene load_steps=8 format=3 uid="uid://buoeolvm6yalf"]
 
 [ext_resource type="Texture2D" uid="uid://dalwspi1htjlp" path="res://textures/backgroundColor.png" id="1_c5uo5"]
 [ext_resource type="PackedScene" uid="uid://dj3sjxuq3rfk7" path="res://Player/player.tscn" id="1_i3rah"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cbsournexoebr" path="res://Meteor/meteor.tscn" id="4_7d0xp"]
 [ext_resource type="PackedScene" uid="uid://c5uu1lrmdmi27" path="res://HUD/hud.tscn" id="5_r44uq"]
 [ext_resource type="PackedScene" uid="uid://bptycnf2ws7b3" path="res://Enemy/fast_enemy.tscn" id="6_oij4s"]
+[ext_resource type="PackedScene" uid="uid://bw4wnlohar2vr" path="res://Enemy/slow_shooter.tscn" id="7_ik1im"]
 
 [node name="GamePlay" type="Node"]
 
@@ -41,4 +42,8 @@ position = Vector2(200, 174)
 position = Vector2(283, 89)
 
 [node name="FastEnemy" parent="." instance=ExtResource("6_oij4s")]
+position = Vector2(380, 54)
+
+[node name="SlowShooter" parent="." instance=ExtResource("7_ik1im")]
 position = Vector2(156, 49)
+fireRate = 1.0
