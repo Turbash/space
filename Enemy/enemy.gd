@@ -18,8 +18,11 @@ func _physics_process(delta: float) -> void:
 	position.y+=verticalSpeed*delta
 
 func damage(amount: int):
+	if health<=0:
+		return
 	health-=amount
 	if health<=0:
+		Signals.emit_signal("on_score_increment", 1)
 		var effect:=plEnemyExplosion.instantiate()
 		effect.global_position=global_position
 		get_tree().current_scene.add_child(effect)

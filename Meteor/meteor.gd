@@ -31,8 +31,12 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
 	
 func damage(amount: int):
+	if life<=0:
+		return
 	life-=amount
 	if life<=0:
+		Signals.emit_signal("on_score_increment", 2)
+
 		var effect=plMeteorEffect.instantiate()
 		effect.position=position
 		get_parent().add_child(effect)
