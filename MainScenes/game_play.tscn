@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://buoeolvm6yalf"]
+[gd_scene load_steps=8 format=3 uid="uid://buoeolvm6yalf"]
 
 [ext_resource type="Texture2D" uid="uid://dalwspi1htjlp" path="res://textures/backgroundColor.png" id="1_c5uo5"]
 [ext_resource type="PackedScene" uid="uid://dj3sjxuq3rfk7" path="res://Player/player.tscn" id="1_i3rah"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cbsournexoebr" path="res://Meteor/meteor.tscn" id="4_7d0xp"]
 [ext_resource type="PackedScene" uid="uid://c5uu1lrmdmi27" path="res://HUD/hud.tscn" id="5_r44uq"]
 [ext_resource type="PackedScene" uid="uid://bj3i3uginqv0g" path="res://Enemy/bouncer_enemy.tscn" id="6_oij4s"]
+[ext_resource type="Script" uid="uid://fe818ig1h0xt" path="res://Enemy/spawner.gd" id="7_ik1im"]
 
 [node name="GamePlay" type="Node"]
 
@@ -42,3 +43,11 @@ position = Vector2(283, 89)
 
 [node name="BouncerEnemy" parent="." instance=ExtResource("6_oij4s")]
 position = Vector2(380, 54)
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(225, -18)
+script = ExtResource("7_ik1im")
+
+[node name="SpawnTimer" type="Timer" parent="Spawner"]
+
+[connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_spawn_timer_timeout"]
