@@ -8,6 +8,7 @@ class_name Enemy
 
 var playerInArea: Player = null
 var plButtet:= preload("res://Bullet/enemy_bullet.tscn")
+var plEnemyExplosion=preload("res://Enemy/enemy_explosion.tscn")
 
 func _process(delta: float) -> void:
 	if playerInArea!=null:
@@ -19,6 +20,9 @@ func _physics_process(delta: float) -> void:
 func damage(amount: int):
 	health-=amount
 	if health<=0:
+		var effect:=plEnemyExplosion.instantiate()
+		effect.global_position=global_position
+		get_tree().current_scene.add_child(effect)
 		queue_free()
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
