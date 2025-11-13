@@ -62,6 +62,9 @@ func damage(amount:int):
 	life-=amount
 	Signals.emit_signal("on_player_life_changed", life)
 	
+	var cam:=get_tree().current_scene.find_child("Camera2D",true,false)
+	cam.shake(20) 
+	
 	if life<=0:
 		print("Player Died!")
 		queue_free()
@@ -69,3 +72,7 @@ func damage(amount:int):
 
 func _on_invincibility_timer_timeout() -> void:
 	shield_sprite.visible=false
+	
+func applyShield(time: float):
+	invincibility_timer.start(time)
+	shield_sprite.visible=true

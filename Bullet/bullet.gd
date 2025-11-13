@@ -18,5 +18,8 @@ func _on_area_entered(area: Area2D) -> void:
 		bullet_effect.position=position
 		get_parent().add_child(bullet_effect)
 		
+		var cam:=get_tree().current_scene.find_child("Camera2D",true,false)
+		cam.shake(1) 
+		
 		area.damage(1)
 		queue_free()
