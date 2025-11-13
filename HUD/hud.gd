@@ -27,3 +27,4 @@ func _on_player_life_changed(life: int):
 func _on_score_increment(amount: int):
 	score+=amount
 	scoreLabel.text=str(score)
+	Signals.score+=amount

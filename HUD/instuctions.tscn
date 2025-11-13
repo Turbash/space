@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1lsu8tvdun0l"]
+[gd_scene load_steps=4 format=3 uid="uid://b1lsu8tvdun0l"]
 
 [ext_resource type="Script" uid="uid://d0p4mp4dsehog" path="res://HUD/instuctions.gd" id="1_fio8j"]
+[ext_resource type="Texture2D" uid="uid://bao7koy2m2clk" path="res://textures/Gemini_Generated_Image_d0dfhvd0dfhvd0df.png" id="2_reux3"]
+
+[sub_resource type="Shortcut" id="Shortcut_reux3"]
 
 [node name="Instuctions" type="Control"]
 layout_mode = 3
@@ -11,8 +14,13 @@ script = ExtResource("1_fio8j")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 450.0
-offset_bottom = 600.0
+offset_left = -154.0
+offset_top = 6.0
+offset_right = 588.0
+offset_bottom = 803.0
+texture = ExtResource("2_reux3")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="KeyboardInstructions" type="Label" parent="."]
 layout_mode = 1
@@ -20,13 +28,30 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -123.0
-offset_bottom = 25.0
+offset_top = -54.5
+offset_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
 text = "Use w,a,s,d keys to control using keyboard.
 Press space bar to shoot."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KeyboardInstructionsTitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -125.5
+offset_bottom = -70.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+text = "KeyBoard Instructions"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -36,13 +61,30 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -191.0
-offset_bottom = -60.0
+offset_top = -135.0
+offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
 text = "Use Joystick on the left side to move around
 And press shoot button on the right to shoot."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MobileInstructionsTitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -215.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+text = "Touch Instructions"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -53,6 +95,7 @@ anchor_right = 1.0
 offset_bottom = 88.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
+shortcut = SubResource("Shortcut_reux3")
 text = "Main Menu"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

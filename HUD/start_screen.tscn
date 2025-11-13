@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://xuh7eluf21k"]
+[gd_scene load_steps=3 format=3 uid="uid://xuh7eluf21k"]
 
 [ext_resource type="Script" uid="uid://3j4ftybljosk" path="res://HUD/start_screen.gd" id="1_wxw2v"]
+[ext_resource type="Texture2D" uid="uid://ctbkv76ttgros" path="res://textures/Gemini_Generated_Image_gmeevzgmeevzgmee.png" id="2_sux1c"]
 
 [node name="StartScreen" type="Control"]
 layout_mode = 3
@@ -11,8 +12,42 @@ script = ExtResource("1_wxw2v")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 450.0
-offset_bottom = 600.0
+offset_left = -65.0
+offset_top = 3.0
+offset_right = 525.0
+offset_bottom = 615.0
+texture = ExtResource("2_sux1c")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 80.0
+offset_bottom = 125.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_font_sizes/font_size = 56
+text = "STAR STRIKE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tagline" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -121.5
+offset_bottom = -76.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "Defend the cosmos. One shot at a time"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="StartGame" type="Button" parent="."]
 layout_mode = 1
@@ -24,6 +59,7 @@ offset_top = -310.0
 offset_bottom = -224.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 1, 1)
 theme_override_font_sizes/font_size = 32
 text = "Start Game"
 
@@ -37,6 +73,7 @@ offset_top = -182.0
 offset_bottom = -96.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0.78039217, 0.49019608, 1, 1)
 theme_override_font_sizes/font_size = 32
 text = "Instructions"
 

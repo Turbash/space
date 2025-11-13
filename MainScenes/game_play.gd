@@ -4,6 +4,8 @@ extends Node
 @onready var gameTimer:=$GameTimer
 @onready var startTimer:=$StartTimer
 
+var plHud=preload("res://HUD/hud.tscn")
+
 @export var gameTime:float=2
 @export var startTime:float=1.2
 
@@ -28,4 +30,4 @@ func _on_start_timer_timeout() -> void:
 
 
 func _on_game_timer_timeout() -> void:
-	get_tree().change_scene_to_file("res://HUD/start_screen.tscn")
+	get_tree().change_scene_to_file("res://HUD/end_screen.tscn")

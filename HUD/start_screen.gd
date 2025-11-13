@@ -8,4 +8,4 @@ func _on_start_game_pressed() -> void:
 
 
 func _on_instructions_pressed() -> void:
-	pass
+	get_tree().change_scene_to_file("res://HUD/instuctions.tscn")

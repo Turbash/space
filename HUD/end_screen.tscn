@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf4c6qiviqhui"]
+
+[ext_resource type="Texture2D" uid="uid://boso3ep5rvq1f" path="res://textures/Gemini_Generated_Image_lgt11algt11algt1.png" id="1_4en1c"]
+[ext_resource type="Script" uid="uid://dpd8foj6jky4o" path="res://HUD/end_screen.gd" id="1_k5qjd"]
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 450.0
+offset_bottom = 600.0
+script = ExtResource("1_k5qjd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -77.0
+offset_top = -4.0
+offset_right = 540.0
+offset_bottom = 682.0
+texture = ExtResource("1_4en1c")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -166.5
+offset_bottom = -121.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Game Over!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -107.5
+offset_bottom = -84.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.23137255, 0, 1)
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -301.0
+offset_bottom = -248.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Restart Game"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
