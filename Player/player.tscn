@@ -49,7 +49,6 @@ radius = 34.0
 [node name="Player" type="Area2D"]
 z_index = 100
 script = ExtResource("1_4ntmi")
-fire_delay = 0.15
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
@@ -74,8 +73,12 @@ one_shot = true
 [node name="InvincibilityTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="RapidFireTimer" type="Timer" parent="."]
+one_shot = true
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("3_btcbx")
 
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
+[connection signal="timeout" from="RapidFireTimer" to="." method="_on_rapid_fire_timer_timeout"]

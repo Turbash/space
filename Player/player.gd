@@ -8,12 +8,16 @@ var plBullet = preload("res://Bullet/bullet.tscn")
 @onready var fire_delay_timer=$FireDelayTimer
 @onready var invincibility_timer=$InvincibilityTimer
 @onready var shield_sprite=$Sprite2D
+@onready var rapid_fire_timer=$RapidFireTimer
 
 @export var speed: float = 100
-@export var fire_delay: float= 0.1
+@export var normal_fire_delay: float= 0.12
+@export var rapid_fire_delay: float=0.08
 @export var life:int=3
 @export var invincibility_time=1.5
+
 var vel:= Vector2(0,0)
+var fire_delay: float=normal_fire_delay
 
 func _ready() -> void:
 	shield_sprite.visible=false
@@ -73,6 +77,14 @@ func damage(amount:int):
 func _on_invincibility_timer_timeout() -> void:
 	shield_sprite.visible=false
 	
+func applyRapidFire(time: float):
+	fire_delay=rapid_fire_delay
+	rapid_fire_timer.start(time + rapid_fire_timer.time_left)
+	
 func applyShield(time: float):
-	invincibility_timer.start(time)
+	invincibility_timer.start(time + invincibility_timer.time_left)
 	shield_sprite.visible=true
+
+
+func _on_rapid_fire_timer_timeout() -> void:
+	fire_delay=normal_fire_delay

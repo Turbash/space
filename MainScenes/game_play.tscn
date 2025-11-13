@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cbsournexoebr" path="res://Meteor/meteor.tscn" id="4_7d0xp"]
 [ext_resource type="PackedScene" uid="uid://c5uu1lrmdmi27" path="res://HUD/hud.tscn" id="5_r44uq"]
 [ext_resource type="PackedScene" uid="uid://bj3i3uginqv0g" path="res://Enemy/bouncer_enemy.tscn" id="6_oij4s"]
-[ext_resource type="Script" uid="uid://fe818ig1h0xt" path="res://Enemy/spawner.gd" id="7_ik1im"]
+[ext_resource type="PackedScene" uid="uid://ubbbcw712daj" path="res://Spawner/spawner.tscn" id="7_2jf2k"]
 [ext_resource type="Script" uid="uid://64q5vxh6kca1" path="res://camera/shakycamera.gd" id="8_5vonb"]
 
 [node name="GamePlay" type="Node"]
@@ -45,14 +45,9 @@ position = Vector2(283, 89)
 [node name="BouncerEnemy" parent="." instance=ExtResource("6_oij4s")]
 position = Vector2(380, 54)
 
-[node name="Spawner" type="Node2D" parent="."]
+[node name="Spawner" parent="." instance=ExtResource("7_2jf2k")]
 position = Vector2(225, -18)
-script = ExtResource("7_ik1im")
-
-[node name="SpawnTimer" type="Timer" parent="Spawner"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 script = ExtResource("8_5vonb")
-
-[connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_spawn_timer_timeout"]
