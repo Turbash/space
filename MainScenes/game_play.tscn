@@ -1,13 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://buoeolvm6yalf"]
+[gd_scene load_steps=8 format=3 uid="uid://buoeolvm6yalf"]
 
 [ext_resource type="Texture2D" uid="uid://dalwspi1htjlp" path="res://textures/backgroundColor.png" id="1_c5uo5"]
 [ext_resource type="PackedScene" uid="uid://dj3sjxuq3rfk7" path="res://Player/player.tscn" id="1_i3rah"]
+[ext_resource type="Script" uid="uid://du7myqld5ablp" path="res://MainScenes/game_play.gd" id="1_ik1im"]
 [ext_resource type="Texture2D" uid="uid://dfo1ty8x1cdd3" path="res://textures/starBig.png" id="2_j7o10"]
 [ext_resource type="PackedScene" uid="uid://c5uu1lrmdmi27" path="res://HUD/hud.tscn" id="5_r44uq"]
 [ext_resource type="PackedScene" uid="uid://ubbbcw712daj" path="res://Spawner/spawner.tscn" id="7_2jf2k"]
 [ext_resource type="Script" uid="uid://64q5vxh6kca1" path="res://camera/shakycamera.gd" id="8_5vonb"]
 
 [node name="GamePlay" type="Node"]
+script = ExtResource("1_ik1im")
 
 [node name="Background" type="Sprite2D" parent="."]
 scale = Vector2(3.0266666, 4.02)
@@ -43,3 +45,25 @@ position = Vector2(225, -18)
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 script = ExtResource("8_5vonb")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -22.5
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="GameTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
