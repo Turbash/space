@@ -33,11 +33,12 @@ offset_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 21
 text = "Use w,a,s,d keys to control using keyboard.
-Press space bar to shoot."
+"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="KeyboardInstructionsTitle" type="Label" parent="."]
 layout_mode = 1
@@ -66,11 +67,11 @@ offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 18
-text = "Use Joystick on the left side to move around
-And press shoot button on the right to shoot."
+theme_override_font_sizes/font_size = 21
+text = "Just click and drag the ship on the screen  to move around"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="MobileInstructionsTitle" type="Label" parent="."]
 layout_mode = 1

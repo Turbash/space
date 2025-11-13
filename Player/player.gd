@@ -50,7 +50,7 @@ func _process(delta: float) -> void:
 		animated_sprite.play("straight")
 	if dragging:
 		global_position = get_viewport().get_mouse_position() + drag_offset
-	if Input.is_action_pressed("shoot") and fire_delay_timer.is_stopped():
+	if fire_delay_timer.is_stopped():
 		fire_delay_timer.start(fire_delay)
 		for child in firing_positions.get_children():
 			
