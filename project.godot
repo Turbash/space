@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Space"
-run/main_scene="uid://buoeolvm6yalf"
+run/main_scene="uid://xuh7eluf21k"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 

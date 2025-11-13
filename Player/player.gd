@@ -15,6 +15,7 @@ var plBullet = preload("res://Bullet/bullet.tscn")
 @export var rapid_fire_delay: float=0.08
 @export var life:int=3
 @export var invincibility_time=1.5
+@export var max_life: int = 6
 
 var vel:= Vector2(0,0)
 var fire_delay: float=normal_fire_delay
@@ -73,6 +74,10 @@ func damage(amount:int):
 		print("Player Died!")
 		queue_free()
 
+func incrementLife(amount: int):
+	if life<max_life:
+		life+=amount
+		Signals.emit_signal("on_player_life_changed",life)
 
 func _on_invincibility_timer_timeout() -> void:
 	shield_sprite.visible=false

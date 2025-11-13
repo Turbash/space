@@ -10,7 +10,8 @@ var preloadEnemies:=[
 
 var preloadPowerups:=[
 	preload("res://Powerups/shield_powerup.tscn"),
-	preload("res://Powerups/rapid_fire_powerup.tscn")
+	preload("res://Powerups/rapid_fire_powerup.tscn"),
+	preload("res://Powerups/life_increase_powerup.tscn")
 ]
 
 var plMeteor:=preload("res://Meteor/meteor.tscn")
@@ -22,7 +23,7 @@ var plMeteor:=preload("res://Meteor/meteor.tscn")
 
 @export var minPowerupSpawnTime:=3.0
 
-@export var maxPowerupSpawnTime:=3
+@export var maxPowerupSpawnTime:=20.0
 
 func _ready() -> void:
 	randomize()

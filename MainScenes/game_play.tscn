@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://buoeolvm6yalf"]
+[gd_scene load_steps=7 format=3 uid="uid://buoeolvm6yalf"]
 
 [ext_resource type="Texture2D" uid="uid://dalwspi1htjlp" path="res://textures/backgroundColor.png" id="1_c5uo5"]
 [ext_resource type="PackedScene" uid="uid://dj3sjxuq3rfk7" path="res://Player/player.tscn" id="1_i3rah"]
 [ext_resource type="Texture2D" uid="uid://dfo1ty8x1cdd3" path="res://textures/starBig.png" id="2_j7o10"]
-[ext_resource type="PackedScene" uid="uid://cbsournexoebr" path="res://Meteor/meteor.tscn" id="4_7d0xp"]
 [ext_resource type="PackedScene" uid="uid://c5uu1lrmdmi27" path="res://HUD/hud.tscn" id="5_r44uq"]
-[ext_resource type="PackedScene" uid="uid://bj3i3uginqv0g" path="res://Enemy/bouncer_enemy.tscn" id="6_oij4s"]
 [ext_resource type="PackedScene" uid="uid://ubbbcw712daj" path="res://Spawner/spawner.tscn" id="7_2jf2k"]
 [ext_resource type="Script" uid="uid://64q5vxh6kca1" path="res://camera/shakycamera.gd" id="8_5vonb"]
 
@@ -37,13 +35,7 @@ z_index = 101
 offset_left = 3.0517574e-05
 
 [node name="Player" parent="." instance=ExtResource("1_i3rah")]
-position = Vector2(200, 174)
-
-[node name="Meteor" parent="." instance=ExtResource("4_7d0xp")]
-position = Vector2(283, 89)
-
-[node name="BouncerEnemy" parent="." instance=ExtResource("6_oij4s")]
-position = Vector2(380, 54)
+position = Vector2(224, 543)
 
 [node name="Spawner" parent="." instance=ExtResource("7_2jf2k")]
 position = Vector2(225, -18)
