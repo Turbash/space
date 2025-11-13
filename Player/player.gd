@@ -19,10 +19,27 @@ var plBullet = preload("res://Bullet/bullet.tscn")
 
 var vel:= Vector2(0,0)
 var fire_delay: float=normal_fire_delay
+var dragging := false
+var drag_offset := Vector2.ZERO
+var touch_id:= -1
 
 func _ready() -> void:
 	shield_sprite.visible=false
 	Signals.emit_signal("on_player_life_changed", life)
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch and event.pressed:
+		dragging = true
+		drag_offset = global_position - event.position
+
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		dragging = true
+		drag_offset = global_position - event.position
+
+	elif event is InputEventScreenTouch and not event.pressed:
+		dragging = false
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+		dragging = false
 
 func _process(delta: float) -> void:
 	if vel.x<0:
@@ -31,7 +48,8 @@ func _process(delta: float) -> void:
 		animated_sprite.play("right")
 	else:
 		animated_sprite.play("straight")
-		
+	if dragging:
+		global_position = get_viewport().get_mouse_position() + drag_offset
 	if Input.is_action_pressed("shoot") and fire_delay_timer.is_stopped():
 		fire_delay_timer.start(fire_delay)
 		for child in firing_positions.get_children():

@@ -12,10 +12,10 @@ script = ExtResource("1_wxw2v")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -65.0
-offset_top = 3.0
-offset_right = 525.0
-offset_bottom = 615.0
+offset_left = -88.0
+offset_top = -5.0
+offset_right = 546.0
+offset_bottom = 665.0
 texture = ExtResource("2_sux1c")
 expand_mode = 1
 stretch_mode = 4
