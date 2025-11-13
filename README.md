@@ -21,3 +21,10 @@ Star Strike is a simple space shooting game. Made in Godot. WHere you have to fi
 - Start screen, instuctions, end screen
 
 Credits: https://www.youtube.com/@CodeNMore
+
+## Demo
+
+
+
+Uploading Screencast From 2025-11-13 20-51-29.mp4…
+
